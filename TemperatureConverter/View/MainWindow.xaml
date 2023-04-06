@@ -29,11 +29,22 @@
     </Window.Resources>
     
     <StackPanel>
-        <TextBlock Text="Celsius" Style="{StaticResource labelStyle}"/>
-        <TextBox x:Name="textboxCel" Style="{StaticResource textStyle}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Celsius" Style="{StaticResource labelStyle}"/>
+        <TextBox Grid.Row="1" x:Name="textboxCel" Style="{StaticResource textStyle}" />
+        <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Content="Convert to Fahrenheit" Click="ConvertToFahrenheit" Style="{StaticResource buttonStyle}"/>
+        </Grid>
         <TextBlock Text="Fahrenheit" Style="{StaticResource labelStyle}"/>
         <TextBox x:Name="textboxFar"  Style="{StaticResource textStyle}" />
         <Button Content="Convert to Celsius" Click="ConvertToCelsius" Style="{StaticResource buttonStyle}"/>
-        <Button Content="Convert to Fahrenheit" Click="ConvertToFahrenheit" Style="{StaticResource buttonStyle}"/>
+        
     </StackPanel>
 </Window>
