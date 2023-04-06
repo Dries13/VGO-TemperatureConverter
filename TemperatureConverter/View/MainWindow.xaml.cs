@@ -31,5 +31,12 @@ namespace View
             var cel = Math.Round((far - 32) / 1.8, 2);
             textbox.Text = cel.ToString();
         }
+
+        private void ConvertToFahrenheit(object sender, RoutedEventArgs e)
+        {
+            var cel = double.Parse(textbox.Text);
+            var far = Math.Round((1.8*cel + 32), 2);
+            textbox.Text = far.ToString();
+        }
     }
 }
