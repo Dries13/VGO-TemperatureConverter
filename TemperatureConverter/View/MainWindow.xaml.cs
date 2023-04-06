@@ -27,7 +27,9 @@ namespace View
 
         private void ConvertToCelsius(object sender, RoutedEventArgs e)
         {
-            textbox.Text = "You clicked the button g";
+            var far = double.Parse(textbox.Text);
+            var cel = Math.Round((far - 32) / 1.8, 2);
+            textbox.Text = cel.ToString();
         }
     }
 }
