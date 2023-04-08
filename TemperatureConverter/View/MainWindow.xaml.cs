@@ -46,7 +46,7 @@ namespace View
             var cel = Math.Round((far - 32) / 1.8, 2);
             textboxCel.Text = cel.ToString();
             var kel = cel+273.15;
-            textboxKel.Text = kel.ToString();
+            //textboxKel.Text = kel.ToString();
         }
 
         private void ConvertCelsius(object sender, RoutedEventArgs e)
@@ -55,16 +55,16 @@ namespace View
             var far = Math.Round((1.8 * cel + 32), 2);
             textboxFar.Text = far.ToString();
             var kel = cel+273.15;
-            textboxKel.Text = kel.ToString();
+            //textboxKel.Text = kel.ToString();
         }
 
         private void ConvertKelvin(object sender, RoutedEventArgs e)
         {
-            var kel = double.Parse(textboxKel.Text);
+            /*var kel = double.Parse(textboxKel.Text);
             var cel = kel - 273.15;
             textboxCel.Text = cel.ToString();
             var far = Math.Round((1.8 * cel + 32), 2);
-            textboxFar.Text = far.ToString();
+            textboxFar.Text = far.ToString();*/
         }
 
         private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
