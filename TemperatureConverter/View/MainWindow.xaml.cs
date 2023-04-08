@@ -23,6 +23,24 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public class CelsiusConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                var kelvin = (double)value;
+                var celsius = kelvin - 273.15;
+
+                return celsius.ToString();
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                var celsius = double.Parse((string)value);
+                var kelvin = celsius + 273.15;
+
+                return kelvin;
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -73,28 +91,9 @@ namespace View
         {
             var kel = slider.Value;
             var cel = kel - 273.15;
-            textboxCel.Text = cel.ToString();
             var far = Math.Round((1.8 * cel + 32), 2);
             textboxFar.Text = far.ToString();
-        }
+        } 
     }
 
-    public class CelsiusConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var kelvin = (double)value;
-            var celsius = kelvin - 273.15;
-
-            return celsius.ToString();
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var celsius = double.Parse((string)value);
-            var kelvin = celsius + 273.15;
-
-            return kelvin;
-        }
-    }
 }

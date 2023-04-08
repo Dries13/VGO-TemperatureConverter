@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:View"
+        xmlns:local="clr-namespace:View.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
@@ -26,6 +26,7 @@
         <Style x:Key="buttonStyle" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="14"/>
         </Style>
+        <local:CelsiusConverter x:Key="celsiusConverter"/>
     </Window.Resources>
     
     <StackPanel>
@@ -38,7 +39,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Celsius" Style="{StaticResource labelStyle}"/>
-            <TextBox Grid.Row="1" x:Name="textboxCel" Style="{StaticResource textStyle}" />
+            <TextBox Grid.Row="1" x:Name="textboxCel" Style="{StaticResource textStyle}" Text="{Binding ElementName=slider, Path=Value, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource celsiusConverter}}" />
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
