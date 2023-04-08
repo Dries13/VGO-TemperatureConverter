@@ -66,5 +66,15 @@ namespace View
             var far = Math.Round((1.8 * cel + 32), 2);
             textboxFar.Text = far.ToString();
         }
+
+        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var kel = slider.Value;
+            textboxKel.Text = kel.ToString();
+            var cel = kel - 273.15;
+            textboxCel.Text = cel.ToString();
+            var far = Math.Round((1.8 * cel + 32), 2);
+            textboxFar.Text = far.ToString();
+        }
     }
 }
